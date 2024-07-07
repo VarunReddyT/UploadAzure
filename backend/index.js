@@ -11,8 +11,8 @@ const app = express();
 const PORT = 4000;
 
 app.use(cors({ origin: 'https://uploadazure.vercel.app' }));
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 
 app.post('/upload', upload.single('video'), async (req, res) => {
