@@ -2,9 +2,18 @@ const express = require('express');
 const upload = require('./upload.js');
 const { blobServiceClient } = require('./azure-config.js');
 const { v4: uuidv4 } = require('uuid');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+dotenv.config();
 
 const app = express();
 const PORT = 4000;
+
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.post('/upload', upload.single('video'), async (req, res) => {
   try {
