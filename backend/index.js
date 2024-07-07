@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const PORT = 4000;
 
-app.use(cors({ origin: 'https://uploadazure.vercel.app' }));
+app.use(cors({ origin: 'https://uploadazure.vercel.app/' }));
 app.use(express.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
