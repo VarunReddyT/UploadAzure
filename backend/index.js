@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.post('/upload', upload.single('video'), async (req, res) => {
   try {
+    console.log("First");
     const containerName = process.env.AZURE_STORAGE_CONTAINER_NAME;
     const containerClient = blobServiceClient.getContainerClient(containerName);
     const blobName = uuidv4() + '-' + req.file.originalname;
