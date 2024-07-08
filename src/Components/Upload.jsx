@@ -5,8 +5,8 @@ export default function Upload() {
   const uploadFile = async (e) => {
     e.preventDefault();
     const file = e.target.fileInput.files[0]
-    const formData = new FormData()
-    formData.append('video', file)
+    const formData = new FormData();
+    formData.append('video', file);
 
     try {
       const res = await axios.post('https://upload-azure-three.vercel.app/upload', formData, {
